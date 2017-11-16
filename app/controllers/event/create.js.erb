@@ -1,0 +1,7 @@
+<% if current_event.pre_register %>
+  $('#myModalBody').html($('#name').val() + " ya fuiste registrado.");
+  $('#myModal').modal('show');
+<% end %>
+$('.inputs').val("");
+$('#name').focus();
+$('#flash').html('<%= bootstrap_flash %>');

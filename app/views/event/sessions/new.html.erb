@@ -1,0 +1,55 @@
+<% content_for :title, "Inicia sesión" %>
+<h2 class="title">¡Bienvenido a <%= current_event.name %>!</h2>
+<div class="card card-block card-form">
+  <%= form_tag event_register_path, id: 'checkin_form', remote: true do %>
+    <div class="form-group row">
+      <%= label_tag :name, 'Nombre', class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-8 offset-sm-1">
+        <%= text_field_tag :name, nil, class:'form-control inputs', placeholder:'Ryan Gosling', autofocus: true %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= label_tag :email, 'Email', class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-8 offset-sm-1">
+        <%= email_field_tag :email, nil, class:'form-control inputs', placeholder:'usuario@email.com' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= label_tag :major, 'Carrera', class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-8 offset-sm-1">
+        <%= text_field_tag :major, nil, class:'form-control inputs', placeholder:'ITC' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= label_tag :semester, 'Semestre', class: 'col-sm-3 form-control-label' %>
+      <div class="col-sm-8 offset-sm-1">
+        <%= text_field_tag :semester, nil, class:'form-control inputs', placeholder:'5' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-8 offset-sm-1">
+        <div class="actions"><%= submit_tag "Registrar", id: 'print_button', class:"btn btn-success btn-block" %></div>
+      </div>
+    </div>
+      <!-- <video id="preview" width=350></video> -->
+  <% end %>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">¡Gracias!</h4>
+      </div>
+      <div class="modal-body" id="myModalBody">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
