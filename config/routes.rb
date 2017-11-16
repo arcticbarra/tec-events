@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     resources :users
     resources :attendees
     resources :events
+    post 'events/:event_slug/download', to: 'events#download', as: 'download_event'
 
-    root to: "users#index"
+    root to: "events#index"
   end
 
   scope path: ':event', module: 'event', as: 'event' do
@@ -17,4 +18,6 @@ Rails.application.routes.draw do
     get 'user/edit', to: 'users#edit', as: 'edit_user'
     patch 'user/', to: 'users#update', as: 'user'
   end
+
+  root 'pages#index'
 end
