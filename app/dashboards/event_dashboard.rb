@@ -17,6 +17,7 @@ class EventDashboard < Administrate::BaseDashboard
     slug: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    link: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -41,7 +42,7 @@ class EventDashboard < Administrate::BaseDashboard
     :end_at,
     :location,
     :price,
-    :slug,
+    :link,
     :created_at,
     :updated_at,
   ].freeze

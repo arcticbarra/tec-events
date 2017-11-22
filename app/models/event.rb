@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   before_create :generate_slug
+  validates :slug, uniqueness: true
   has_many :attendees
 
   def print_attendees
@@ -11,9 +12,13 @@ class Event < ApplicationRecord
     csv
   end
 
+  def link
+    "https://tec-events.herokuapp.com/#{slug}/register"
+  end
+
   private
 
   def generate_slug
-    self.slug = name.parameterize
+    self.slug = name.parameterize + id.to_s
   end
 end
