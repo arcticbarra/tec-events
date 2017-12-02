@@ -1,6 +1,11 @@
 class Event < ApplicationRecord
   before_create :generate_slug
   validates :slug, uniqueness: true
+  validates :name, presence: true
+  validates :location, presence: true
+  validates :price, presence: true
+  validates :start, presence: true
+  validates :end_at, presence: true
   has_many :attendees
 
   def print_attendees
